@@ -1,12 +1,10 @@
 package com.example.tools.byteman.beans;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.List;
 
-@ConfigurationProperties("byteman")
+
 public class BytemanProperties {
     private List<String> scriptFolders;
     private long pollingInterval=3000L;
@@ -37,7 +35,7 @@ public class BytemanProperties {
         this.port = port;
     }
 
-    private int findFreeSocketPort(){
+    public int findFreeSocketPort() {
         try {
             ServerSocket socket = new ServerSocket(0);
             socket.close();
@@ -45,5 +43,14 @@ public class BytemanProperties {
         } catch (IOException e) {
            throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "BytemanProperties{" +
+                "scriptFolders=" + scriptFolders +
+                ", pollingInterval=" + pollingInterval +
+                ", port=" + port +
+                '}';
     }
 }

@@ -7,7 +7,10 @@ import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.springframework.boot.CommandLineRunner;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.management.ManagementFactory;
 import java.util.List;
 import java.util.Set;
@@ -28,7 +31,7 @@ public class BytemanInstaller implements CommandLineRunner {
         installByteman();
     }
 
-    public void installByteman() throws FileNotFoundException {
+    public void installByteman() {
         String pid = ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
         org.jboss.byteman.agent.install.Install.main(new String[]{
                 "-b",
@@ -36,7 +39,7 @@ public class BytemanInstaller implements CommandLineRunner {
                 String.valueOf(props.getPort()),
                 //"-Dorg.jboss.byteman.compile.to.bytecode",
                 "-Dorg.jboss.byteman.transform.all",
-                "-Dorg.jboss.byteman.verbose",
+                //"-Dorg.jboss.byteman.verbose",
                 "-Dorg.jboss.byteman.debug",
                 pid});
         scan();
