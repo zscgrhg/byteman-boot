@@ -1,4 +1,4 @@
-package com.example.tools.byteman.beans;
+package com.example.tools.byteman.boot;
 
 import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
 import org.apache.commons.io.monitor.FileAlterationMonitor;

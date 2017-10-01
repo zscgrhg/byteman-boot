@@ -1,4 +1,4 @@
-package com.example.tools.byteman.beans;
+package com.example.tools.byteman.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;

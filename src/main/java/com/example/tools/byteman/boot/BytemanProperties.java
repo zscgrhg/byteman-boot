@@ -1,4 +1,4 @@
-package com.example.tools.byteman.beans;
+package com.example.tools.byteman.boot;
 
 import java.io.IOException;
 import java.net.ServerSocket;
