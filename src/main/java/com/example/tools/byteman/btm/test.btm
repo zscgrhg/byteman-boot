@@ -1,0 +1,7 @@
+RULE test call
+CLASS HomeController
+METHOD hello
+IF true
+DO
+return new Hellowords("hello hello ya!!");
+ENDRULE

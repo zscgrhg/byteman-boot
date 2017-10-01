@@ -14,7 +14,7 @@ public class BootstrapListener implements SpringApplicationRunListener {
     }
 
     public void starting() {
-
+        BytemanProperties config = new BytemanProperties();
         Properties p = new Properties();
         try {
             p.load(getClass().getClassLoader().getResourceAsStream("byteman.properties"));
@@ -23,8 +23,8 @@ public class BootstrapListener implements SpringApplicationRunListener {
         }
         String path = p.getProperty("folders", "");
         String[] folders = path.split("[:;]");
-        BytemanProperties config = new BytemanProperties();
         config.setScriptFolders(Arrays.asList(folders));
+
         long interval = Long.parseLong(p.getProperty("interval", "3000"));
         config.setPollingInterval(interval);
         int port = Integer.parseInt(p.getProperty("port", "0"));
