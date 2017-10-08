@@ -5,7 +5,6 @@ import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
-import org.springframework.boot.CommandLineRunner;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public class BytemanInstaller implements CommandLineRunner {
+public class BytemanInstaller {
 
     private final BytemanProperties props;
     private final ScriptWatcher watcher;
@@ -27,9 +26,6 @@ public class BytemanInstaller implements CommandLineRunner {
         this.watcher = new ScriptWatcher(props);
     }
 
-    public void run(String... strings) throws Exception {
-        installByteman();
-    }
 
     public void installByteman() {
         String pid = ManagementFactory.getRuntimeMXBean().getName().split("@")[0];
